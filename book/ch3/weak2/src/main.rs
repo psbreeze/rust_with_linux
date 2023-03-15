@@ -2,15 +2,24 @@ use std::rc::{Rc, Weak};
 use std::cell::RefCell;
 
 struct Person {
+    id: i32,
     next: RefCell<Option<Weak<Person>>>,
+}
+
+impl Drop for Person {
+    fn drop(&mut self) {
+        println!("p{} Drop!", self.id);
+    }
 }
 
 fn main() {
     let mut p1 = Rc::new(Person {
+        id: 1,
         next: RefCell::new(None),
     });
 
     let mut p2 = Rc::new(Person {
+        id: 2,
         next: RefCell::new(None),
     });
 

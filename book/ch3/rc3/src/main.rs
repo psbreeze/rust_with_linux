@@ -10,10 +10,10 @@ fn push_front(head: Rc<Person>, name: String, age: i32) -> Rc<Person> {
     let p = Rc::new(Person {
         name: name,
         age: age,
-        next: Some(head)
+        next: Some(head.clone())
     });
 
-    p
+    p.clone()
 }
 
 fn main() {

@@ -16,7 +16,7 @@ fn main() {
     let p2 = Rc::new(Person {
         name: String::from("Rust"),
         age: 28,
-        next: Some(p1), // Rust의 다음 노드를 Luna로 설정
+        next: Some(p1.clone()), // Rust의 다음 노드를 Luna로 설정
     });
 
     print!("{} -> ", p2.name);
